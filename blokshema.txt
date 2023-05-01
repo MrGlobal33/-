@@ -1,0 +1,54 @@
+
+
+string[] array = { "Hello", "2", "world", ":-)" };
+int count = 0;
+int index = 0;
+string temp = string.Empty;
+
+PrintTextArray(array);
+Console.Write(" -> ");
+
+while (index < array.Length)
+{
+    temp = array[index];
+    if (temp.Length <= 3)
+    {
+        count++;
+    }
+    index++;
+}
+
+if (count == 0)
+{
+    Console.Write("[ ]");
+    return;
+}
+
+string[] arrayNew = new string[count];
+index = 0;
+int indexNew = 0;
+
+while (index < array.Length)
+{
+    temp = array[index];
+    if (temp.Length <= 3)
+    {
+        arrayNew[indexNew] = array[index];
+        indexNew++;
+    }
+    index++;
+}
+
+PrintTextArray(arrayNew);
+
+void PrintTextArray(string[] arr)
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
+    {
+        Console.Write(arr[i] + ", ");
+    }
+    Console.Write(arr[arr.Length - 1] + "]");
+}
+
+
